@@ -30,3 +30,5 @@ if args.motif:
         print("FOUND")
     else:
         print("NOT FOUND")
+
+parser.add_argument("-m", "--motif", type = str, required = False, help = "Motif")
