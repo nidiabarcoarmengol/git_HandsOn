@@ -22,6 +22,7 @@ args = parser.parse_args()
 args.seq = args.seq.upper()                 # Note we just added this line
 
 # Check if the sequence consists of valid DNA or RNA characters
+# The filter for recognizing RNA and DNA sequences has been modified to correctly identify them.
 if re.search('^[ACGTU]+$', args.seq):
 # If my sequence contain only ACGT is DNA 
     if 'T' in args.seq and 'U' not in args.seq:
