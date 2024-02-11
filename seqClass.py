@@ -23,10 +23,16 @@ args.seq = args.seq.upper()                 # Note we just added this line
 
 # Check if the sequence consists of valid DNA or RNA characters
 if re.search('^[ACGTU]+$', args.seq):
-    if re.search('T', args.seq):
+# If my sequence contain only ACGT is DNA 
+    if 'T' in args.seq and 'U' not in args.seq:
         print ('The sequence is DNA')
-    elif re.search('U', args.seq):
+# If my sequence contain only ACGU is RNA
+    elif 'U' in args.seq and 'T' not in args.seq:
         print ('The sequence is RNA')
+# If my sequence contain U and T is not a RNA or DNA sequence
+    elif 'T' in args.seq and 'U' in args.seq:
+        print ('The sequence is not DNA or RNA')
+# If my sequence contain only ACG can be RNA or DNA
     else:
         print ('The sequence can be DNA or RNA')
 else:
