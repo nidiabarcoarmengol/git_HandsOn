@@ -30,15 +30,19 @@ if all(base in 'ACGTU' for base in args.seq):
     g_percentage = (args.seq.count('G') / length) * 100
     t_percentage = (args.seq.count('T') / length) * 100
     u_percentage = (args.seq.count('U') / length) * 100
-
-    print(f"A: {a_percentage:.2f}%")
-    print(f"C: {c_percentage:.2f}%")
-    print(f"G: {g_percentage:.2f}%")
-
-    if 'T' in args.seq:
+    
+    if 'T' in args.seq and 'U' not in args.seq:
+        print(f"A: {a_percentage:.2f}%")
+        print(f"C: {c_percentage:.2f}%")
+        print(f"G: {g_percentage:.2f}%")
         print(f"T: {t_percentage:.2f}% \n(DNA sequence)")
-    elif 'U' in args.seq:
+    elif 'U' in args.seq and 'T' not in args.seq:
+        print(f"A: {a_percentage:.2f}%")
+        print(f"C: {c_percentage:.2f}%")
+        print(f"G: {g_percentage:.2f}%")
         print(f"U: {u_percentage:.2f}% \n(RNA sequence)")
+    else:
+        print('The sequence is not DNA nor RNA')
 
 else:
     print('The sequence is not DNA nor RNA')
